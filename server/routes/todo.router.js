@@ -14,6 +14,18 @@ router.get('/', ( req,res )=>{
     })
 })
 // POST
+router.post('/', (req, res)=>{
+    console.log('/api/todo POST:', req.body, req.query);
+    const queryString = `INSERT INTO "todo" ("name", "complete") VALUES ($1, false);`
+    const values = [req.body.name];
+    pool.query(queryString, values).then((results)=>{
+        res.sendStatus(200);
+    }).catch((err)=>{
+        console.log(err);
+        res.sendStatus(400);
+
+    })
+})
 
 // PUT
 router.put( '/', (req, res)=>{
@@ -25,10 +37,22 @@ router.put( '/', (req, res)=>{
     }).catch((err)=>{
         console.log(err);
         res.sendStatus(400);
-        
+
     })
     res.send('woof');
 })
 // DELETE
+router.delete('/', (req, res)=>{
+    console.log('/api/todo DELETE:', req.body, req.query);
+    const queryString = `DELETE FROM "todo" WHERE id=$1;`;
+    const values =[req.query.id];
+    pool.query(queryString, values).then((results)=>{
+        res.sendStatus(200);
+    }).catch((err)=>{
+        console.log(err);
+        res.sendStatus(400);
+    })
+}
+)
 
 module.exports = router;
