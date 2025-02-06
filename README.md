@@ -35,7 +35,7 @@ USAGE
 2. Click the “Add Item” button. The task should appear under “Current List,” which will show all of 
     the tasks to be completed once more are added. The initial background color of the tasks should be red, as they are “to be completed.”
 3. Repeat Step 2 to add more tasks.
-4. Once you have completed a task on the to-do list, click the “Toggle Comple” button next to it, 
+4. Once you have completed a task on the to-do list, click the “Toggle Complete” button next to it, 
     and it’s background color will change to green, indicating that it has been completed.
 5. To delete a task from the list, click the “Delete” button next to the task, and it will be 
     removed from the list.
